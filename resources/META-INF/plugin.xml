@@ -1,0 +1,56 @@
+<idea-plugin version="2">
+  <id>com.jonathanmackenzie.opencl.plugin</id>
+  <name>OpenCL Support</name>
+  <version>1.0</version>
+  <vendor email="support@example.com" url="http://jonno.9ch.in">YourCompany</vendor>
+
+  <description><![CDATA[
+      Support for OpenCL kernel (.cl) files, including:<br>
+      <ul>
+        <li>Syntax highlighting</li>
+        <li>Shows compiler errors, lint and warnings</li>
+      </ul>
+    ]]></description>
+
+  <change-notes><![CDATA[
+      First release!
+    ]]>
+  </change-notes>
+
+  <!-- please see http://www.jetbrains.org/intellij/sdk/docs/basics/getting_started/build_number_ranges.html for description -->
+  <idea-version since-build="145.0"/>
+
+  <!-- please see http://www.jetbrains.org/intellij/sdk/docs/basics/getting_started/plugin_compatibility.html
+       on how to target different products -->
+  <!-- uncomment to enable plugin in all products
+  <depends>com.intellij.modules.lang</depends>
+  -->
+
+  <extensions defaultExtensionNs="com.intellij">
+    <!-- Add your extensions here -->
+    <fileTypeFactory implementation="com.jonathanmackenzie.opencl.plugin.OpenClFileTypeFactory"/>
+    <lang.parserDefinition language="OpenCl" implementationClass="com.jonathanmackenzie.opencl.plugin.OpenClParserDefinition"/>
+    <lang.syntaxHighlighterFactory language="OpenCl"
+                                   implementationClass="com.jonathanmackenzie.opencl.plugin.OpenClSyntaxHighlighterFactory"/>
+    <colorSettingsPage implementation="com.jonathanmackenzie.opencl.plugin.OpenClColorSettingsPage"/>
+    <annotator language="JAVA" implementationClass="com.jonathanmackenzie.opencl.plugin.OpenClAnnotator"/>
+    <codeInsight.lineMarkerProvider language="JAVA" implementationClass="com.jonathanmackenzie.opencl.plugin.OpenClLineMarkerProvider"/>
+    <completion.contributor language="OpenCl" implementationClass="com.jonathanmackenzie.opencl.plugin.OpenClCompletionContributor"/>
+    <psi.referenceContributor implementation="com.jonathanmackenzie.opencl.plugin.OpenClReferenceContributor"/>
+    <lang.findUsagesProvider language="OpenCl" implementationClass="com.jonathanmackenzie.opencl.plugin.OpenClFindUsagesProvider"/>
+    <lang.refactoringSupport language="OpenCl" implementationClass="com.jonathanmackenzie.opencl.plugin.OpenClRefactoringSupportProvider"/>
+    <lang.foldingBuilder language="JAVA" implementationClass="com.jonathanmackenzie.opencl.plugin.OpenClFoldingBuilder"/>
+    <gotoSymbolContributor implementation="com.jonathanmackenzie.opencl.plugin.OpenClChooseByNameContributor"/>
+    <lang.psiStructureViewFactory language="OpenCl" implementationClass="com.jonathanmackenzie.opencl.plugin.OpenClStructureViewFactory"/>
+    <lang.formatter language="OpenCl" implementationClass="com.jonathanmackenzie.opencl.plugin.OpenClFormattingModelBuilder"/>
+    <codeStyleSettingsProvider implementation="com.jonathanmackenzie.opencl.plugin.OpenClCodeStyleSettingsProvider"/>
+    <langCodeStyleSettingsProvider implementation="com.jonathanmackenzie.opencl.plugin.OpenClLanguageCodeStyleSettingsProvider"/>
+    <lang.commenter language="OpenCl" implementationClass="com.jonathanmackenzie.opencl.plugin.OpenClCommenter"/>
+    <todoIndexer filetype="OpenCl file" implementationClass="com.jonathanmackenzie.opencl.plugin.OpenClTodoIndexer"/>
+  </extensions>
+
+  <actions>
+    <!-- Add your actions here -->
+  </actions>
+
+</idea-plugin>
